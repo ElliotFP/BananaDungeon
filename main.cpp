@@ -4,6 +4,63 @@
 
 using namespace std; // standard namespace
 
+int puzzle1()
+{
+
+    cout << "Puzzle 1! What is the capital of France?" << endl;
+    string answer;
+    getline(cin, answer);
+    if (answer == "Paris" || answer == "paris")
+    {
+        cout << "Correct!" << endl;
+        return 0;
+    }
+    else
+    {
+        cout << "Wrong!" << endl;
+        return 1;
+    }
+}
+
+int puzzle2()
+{
+
+    cout << "Puzzle 2! What is 7-2?" << endl;
+    int answer;
+    cin >> answer;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+    if (answer == 5)
+    {
+        cout << "Correct!" << endl;
+        return 0;
+    }
+    else
+    {
+        cout << "Wrong!" << endl;
+        return 1;
+    }
+}
+
+int puzzle3(string name)
+{
+    cout << "Puzzle 3! What is your name?" << endl;
+    string answer;
+    getline(cin, answer);
+
+    if (answer == name)
+    {
+        cout << "Correct!" << endl;
+        return 0;
+    }
+    else
+    {
+        cout << "Wrong!" << endl;
+        return 1;
+    }
+}
+
+// main function
 int main()
 {
     // all of our starter code will start here
@@ -123,6 +180,22 @@ int main()
     cout << "Press Enter to continue..." << endl;
 
     cin.ignore(); // Ignore the newline character in the input stream
+
+    // intro to functions and function calls
+    cout << "You enter a large room with dim lighting. In front of you stands a slender figure in a cloak." << endl;
+    cout << "Totally skull faced. He speaks:" << endl;
+    cout << "Welcome to the Banana Dungeon, " << name << ". I will ask you 3 questions with various punishments if you get them wrong..." << endl;
+
+    int dmg = puzzle1() + puzzle2() + puzzle3(name);
+    health = health - dmg;
+
+    cout << "You are inflicted " << dmg << " damage. Your health is now " << health << "." << endl;
+
+    if (health <= 0)
+    {
+        cout << "You have died!" << endl;
+        return 0;
+    }
 
     return 0; // return 0 to the operating system
 }
