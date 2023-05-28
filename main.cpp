@@ -113,5 +113,16 @@ int main()
 
     cin.ignore(); // Ignore the newline character in the input stream
 
+    cout << "Entering the dungeon in 10 " << endl;
+    for (int i = 9; i >= 0; i--)
+    {
+        cout << i << "..." << endl;
+    }
+
+    cout << "Here we go!" << endl;
+    cout << "Press Enter to continue..." << endl;
+
+    cin.ignore(); // Ignore the newline character in the input stream
+
     return 0; // return 0 to the operating system
 }
