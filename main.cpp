@@ -17,16 +17,27 @@ int main()
     string name;
 
     // read name into name variable from the keyboard
-    // cin is short for console in
-    cin >> name;
     getline(cin, name); // Read a line of input including spaces
 
     cout << "Welcome to the Banana Dungeon, " << name << "." << endl;
-    cout << "Are you prepared to enter? (Press Enter to continue)" << endl;
+    cout << "Are you prepared to enter? (y/n)" << endl;
 
-    cin.ignore(); // Ignore the newline character in the input stream
+    bool ready = false; // boolean variable to hold whether the user is ready or not
+    char choice;        // character variable to hold the user's choice
+    cin >> choice;      // read the user's choice into the choice variable
 
-    cout << "Very well then if it is your own demise you seek!" << endl;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignore remaining characters in the input stream
+
+    ready = (choice == 'y' || choice == 'Y');
+
+    if (ready)
+    {
+        cout << "Very well then, but it is at your own risk that you descend into these depts!" << endl;
+    }
+    else
+    {
+        cout << "A wise choice!" << endl;
+    }
 
     cin.ignore(); // Ignore the newline character in the input stream
 
