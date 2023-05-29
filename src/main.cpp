@@ -1,6 +1,7 @@
 // extra library includes
 #include <iostream> //input output stream
 #include <string>   //string library
+#include "../Headers/Puzzles.h"
 
 using namespace std; // standard namespace
 
