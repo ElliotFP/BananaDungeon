@@ -20,7 +20,7 @@ int puzzle1()
         cout << "Wrong!" << endl;
         return 1;
     }
-}
+};
 
 int puzzle2()
 {
@@ -40,7 +40,7 @@ int puzzle2()
         cout << "Wrong!" << endl;
         return 1;
     }
-}
+};
 
 int puzzle3(string name)
 {
@@ -58,4 +58,4 @@ int puzzle3(string name)
         cout << "Wrong!" << endl;
         return 1;
     }
-}
+};

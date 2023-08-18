@@ -2,64 +2,9 @@
 #include <iostream> //input output stream
 #include <string>   //string library
 #include "../Headers/Puzzles.h"
+#include "../Headers/Character.h"
 
 using namespace std; // standard namespace
-
-int puzzle1()
-{
-
-    cout << "Puzzle 1! What is the capital of France?" << endl;
-    string answer;
-    getline(cin, answer);
-    if (answer == "Paris" || answer == "paris")
-    {
-        cout << "Correct!" << endl;
-        return 0;
-    }
-    else
-    {
-        cout << "Wrong!" << endl;
-        return 1;
-    }
-}
-
-int puzzle2()
-{
-
-    cout << "Puzzle 2! What is 7-2?" << endl;
-    int answer;
-    cin >> answer;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-    if (answer == 5)
-    {
-        cout << "Correct!" << endl;
-        return 0;
-    }
-    else
-    {
-        cout << "Wrong!" << endl;
-        return 1;
-    }
-}
-
-int puzzle3(string name)
-{
-    cout << "Puzzle 3! What is your name?" << endl;
-    string answer;
-    getline(cin, answer);
-
-    if (answer == name)
-    {
-        cout << "Correct!" << endl;
-        return 0;
-    }
-    else
-    {
-        cout << "Wrong!" << endl;
-        return 1;
-    }
-}
 
 // main function
 int main()
@@ -163,11 +108,13 @@ int main()
             characterCreated = true;
         }
     }
+
+    // create a character
+    Character mainCharacter;
+    mainCharacter.setupStats(health, strength, defense, agility);
+
     cout << "These are your stats, " << name << endl;
-    cout << "Health: " << health << endl;
-    cout << "Strength: " << strength << endl;
-    cout << "Defense: " << defense << endl;
-    cout << "Agility: " << agility << endl;
+    mainCharacter.printStats();
 
     cin.ignore(); // Ignore the newline character in the input stream
 
@@ -191,6 +138,8 @@ int main()
     health = health - dmg;
 
     cout << "You are inflicted " << dmg << " damage. Your health is now " << health << "." << endl;
+
+    // build a Character object
 
     if (health <= 0)
     {

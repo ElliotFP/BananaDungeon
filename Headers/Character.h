@@ -11,4 +11,4 @@ public:
 
     void setupStats(int _hp, int _str, int _def, int _agi);
     void printStats();
-}
+};
