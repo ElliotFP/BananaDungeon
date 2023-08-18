@@ -7,25 +7,30 @@ using namespace std;
 
 Character::Character(int _hp, int _str, int _def, int _agi)
 {
-    isAlive = true;
     hp = _hp;
     hpMax = _hp;
     str = _str;
     def = _def;
     agi = _agi;
+    isAlive = true;
 };
 
 Character::~Character(){};
 
 // getter functions
-int Character::getstr()
-{
-    return str;
-}
-
 int Character::gethp()
 {
     return hp;
+}
+
+int Character::gethpmax()
+{
+    return hpMax;
+}
+
+int Character::getstr()
+{
+    return str;
 }
 
 int Character::getagi()
@@ -53,12 +58,17 @@ void Character::setupStats(int _hp, int _str, int _def, int _agi)
     agi = _agi;
 };
 
-void Character::takeDamage(int damage)
+void Character::takeDamage(int dmg)
 {
-    hp -= damage;
+    int trueDmg = dmg - def;
+    if (trueDmg > 0)
+    {
+        hp -= trueDmg;
+    }
     if (hp < 1)
     {
         isAlive = false;
+        cout << "You have died!" << endl;
     }
 }
 

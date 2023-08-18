@@ -73,9 +73,9 @@ int main()
         }
         else if (choice == 2) // if the user chose mage
         {
-            health = 2;
+            health = 3;
             strength = 9;
-            defense = 5;
+            defense = 4;
             agility = 4;
         }
         else if (choice == 3) // if the user chose paladin
