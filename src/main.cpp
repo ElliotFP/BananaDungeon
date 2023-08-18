@@ -110,8 +110,7 @@ int main()
     }
 
     // create a character
-    Character mainCharacter;
-    mainCharacter.setupStats(health, strength, defense, agility);
+    Character mainCharacter(health, strength, defense, agility);
 
     cout << "These are your stats, " << name << endl;
     mainCharacter.printStats();
@@ -135,13 +134,13 @@ int main()
     cout << "Welcome to the Banana Dungeon, " << name << ". I will ask you 3 questions with various punishments if you get them wrong..." << endl;
 
     int dmg = puzzle1() + puzzle2() + puzzle3(name);
-    health = health - dmg;
+    mainCharacter.takeDamage(dmg);
 
-    cout << "You are inflicted " << dmg << " damage. Your health is now " << health << "." << endl;
+    cout << "You are inflicted " << dmg << " damage. Your health is now " << mainCharacter.gethp() << "." << endl;
 
     // build a Character object
 
-    if (health <= 0)
+    if (!mainCharacter.getlife())
     {
         cout << "You have died!" << endl;
         return 0;
