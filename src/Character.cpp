@@ -61,10 +61,11 @@ void Character::setupStats(int _hp, int _str, int _def, int _agi)
 void Character::takeDamage(int dmg)
 {
     int trueDmg = dmg - def;
-    if (trueDmg > 0)
+    if (trueDmg < 1)
     {
-        hp -= trueDmg;
+        trueDmg = 1;
     }
+    hp -= trueDmg;
     if (hp < 1)
     {
         isAlive = false;

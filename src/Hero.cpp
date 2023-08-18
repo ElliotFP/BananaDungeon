@@ -1,18 +1,14 @@
-#include "Hero.h"
+#include "../Headers/Hero.h"
+#include "../Headers/Character.h"
 
 #include <iostream>
 #include <string>
 
-Hero::Hero(int _hp, int _str, int _def, int _agi, string _name)
+Hero::Hero(int _hp, int _str, int _def, int _agi, string _name) : Character(_hp, _str, _def, _agi)
 {
-    hp = _hp;
-    hpMax = _hp;
-    str = _str;
-    def = _def;
-    agi = _agi;
-    isAlive = true;
     name = _name;
 };
+
 Hero::~Hero(){};
 
 void Hero::setName(string s)

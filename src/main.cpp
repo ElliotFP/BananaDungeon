@@ -3,6 +3,8 @@
 #include <string>   //string library
 #include "../Headers/Puzzles.h"
 #include "../Headers/Character.h"
+#include "../Headers/Hero.h"
+#include "../Headers/Monster.h"
 
 using namespace std; // standard namespace
 
@@ -73,7 +75,7 @@ int main()
         }
         else if (choice == 2) // if the user chose mage
         {
-            health = 3;
+            health = 2;
             strength = 9;
             defense = 4;
             agility = 4;
@@ -110,9 +112,9 @@ int main()
     }
 
     // create a character
-    Character mainCharacter(health, strength, defense, agility);
+    Hero mainCharacter(health, strength, defense, agility, name);
 
-    cout << "These are your stats, " << name << endl;
+    cout << "These are your stats, " << mainCharacter.getName() << endl;
     mainCharacter.printStats();
 
     cin.ignore(); // Ignore the newline character in the input stream
@@ -131,12 +133,12 @@ int main()
     // intro to functions and function calls
     cout << "You enter a large room with dim lighting. In front of you stands a slender figure in a cloak." << endl;
     cout << "Totally skull faced. He speaks:" << endl;
-    cout << "Welcome to the Banana Dungeon, " << name << ". I will ask you 3 questions with various punishments if you get them wrong..." << endl;
+    cout << "Welcome to the Banana Dungeon, " << mainCharacter.getName() << ". I will ask you 3 questions with various punishments if you get them wrong..." << endl;
 
     int dmg = puzzle1() + puzzle2() + puzzle3(name);
     mainCharacter.takeDamage(dmg);
 
-    cout << "You are inflicted " << dmg << " damage. Your health is now " << mainCharacter.gethp() << "." << endl;
+    cout << "You are inflicted " << dmg << " damage. Your health is now " << mainCharacter.gethp() << "/" << mainCharacter.gethpmax() << "." << endl;
 
     // build a Character object
 
