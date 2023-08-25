@@ -14,6 +14,6 @@ public:
     Banana(int _hp, int _str, int _def, int _agi);
     ~Banana();
 
-    void slip(int charAgi);
+    int slip(int charAgi);
     int eat();
 };

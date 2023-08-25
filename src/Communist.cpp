@@ -14,6 +14,7 @@ void Communist::redistribute(Hero Ennemy)
     avg /= 4;
     Ennemy.setupStats(avg, avg, avg, avg);
 };
+
 void Communist::overthrow(Hero Ennemy)
 {
     Ennemy.takeDamage(Ennemy.getstr());

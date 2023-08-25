@@ -5,6 +5,8 @@
 #include "../Headers/Character.h"
 #include "../Headers/Hero.h"
 #include "../Headers/Monster.h"
+#include "../Headers/Banana.h"
+#include "../Headers/Communist.h"
 
 using namespace std; // standard namespace
 
@@ -140,13 +142,36 @@ int main()
 
     cout << "You are inflicted " << dmg << " damage. Your health is now " << mainCharacter.gethp() << "/" << mainCharacter.gethpmax() << "." << endl;
 
-    // build a Character object
+    cout << mainCharacter.getlife() << ", you have passed the first test. You may continue..." << endl;
 
     if (!mainCharacter.getlife())
     {
         cout << "You have died!" << endl;
         return 0;
     }
+
+    cout << "You have passed the first test. You may continue..." << endl;
+    cout << "Press Enter to continue..." << endl;
+
+    cin.ignore(); // Ignore the newline character in the input stream
+
+    cout << "You walk through a narrow tunnel for what seems like an eternity and emerge into a dimly lit roo with a banana peal in the middle. " << endl;
+
+    Banana BananaMonster(3, 3, 3, 3);
+
+    // the banana monster uses slip;
+    mainCharacter.takeDamage(BananaMonster.slip(mainCharacter.getagi()));
+
+    if (!mainCharacter.getlife())
+    {
+        cout << "You have died!" << endl;
+        return 0;
+    }
+
+    mainCharacter.printStats();
+    cout << "You have survived the banana peal. You may eat the banana." << endl;
+    mainCharacter.heal(BananaMonster.eat());
+    mainCharacter.printStats();
 
     return 0; // return 0 to the operating system
 }
